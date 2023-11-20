@@ -1,0 +1,36 @@
+<!-- 게시판을 만드려고 하는데 글 목록(번호, 글쓴이, 제목, 조회수, 게시 일자)을 jinja로 불러온다고 헀을 때 html 전체 코드를 작성해줘-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>선린 갤러리</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>글쓴이</th>
+                <th>제목</th>
+                <th>조회수</th>
+                <th>게시 일자</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.author }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.view_count }}</td>
+                <td>{{ post.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/posts/new/">새 글 쓰기</a>
+</body>
+</html>
